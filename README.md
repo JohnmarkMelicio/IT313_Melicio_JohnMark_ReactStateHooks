@@ -1,56 +1,55 @@
-# Welcome to your Expo app 👋
+# IT313 React State and Hooks
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Laboratory 5 - Lab Timer & Practice Tracker
 
-## Get started
+This project is a React Native application created for IT 313 - Mobile Programming.
 
-1. Install dependencies
+The application allows students to:
 
-   ```bash
-   npm install
-   ```
+- Track the number of practice problems solved
+- Start and stop a laboratory stopwatch
+- Display "Great job!" after solving five or more problems
+- Demonstrate React state and hooks
 
-2. Start the app
+## React Concepts Used
 
-   ```bash
-   npx expo start
-   ```
+### useState
 
-In the output, you'll find options to open the app in a
+useState is used to manage the solved counter and the running state of the stopwatch.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### useEffect
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+useEffect is used inside the custom useStopwatch hook to create and manage the timer interval.
 
-## Get a fresh project
+### Cleanup Function
 
-When you're ready, run:
+clearInterval is used to clean up the timer when the stopwatch stops or the component is unmounted.
+
+### Conditional Rendering
+
+Conditional rendering displays:
+
+- "Great job!" when solved reaches 5
+- "Running..." when the stopwatch is running
+- "Paused" when the stopwatch is stopped
+
+### Event Handling
+
+Buttons use onPress event handlers to update the application state.
+
+### Lifting State Up
+
+LabScreen owns the shared state and passes the required data and callbacks to PracticeTracker and Stopwatch.
+
+### Custom Hook
+
+useStopwatch is a custom hook that manages the stopwatch seconds and timer effect.
+
+## How to Run
+
+Install dependencies:
 
 ```bash
-npm run reset-project
+npm install
+npx expo start
 ```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-### Other setup steps
-
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
